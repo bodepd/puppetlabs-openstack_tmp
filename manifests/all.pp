@@ -4,6 +4,8 @@
 # an openstack all-in-one installation.
 #
 class openstack::all(
+  # passing in the public ipaddress is required
+  $public_address,
   # middleware credentials
   $mysql_root_password  = 'sql_pass',
   $rabbit_password      = 'rabbit_pw',
@@ -184,6 +186,7 @@ class openstack::all(
     enabled                       => true,
     vnc_enabled                   => true,
     vncserver_proxyclient_address => '127.0.0.1',
+    vncproxy_host                 => $public_address,
   }
 
   class { 'nova::compute::libvirt':

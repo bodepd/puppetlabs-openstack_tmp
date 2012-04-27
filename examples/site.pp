@@ -15,7 +15,10 @@ resources { 'nova_config':
 
 node /openstack_all/ {
 
-  class { 'openstack::all': }
+  class { 'openstack::all':
+    public_address => $ipaddress_eth0
+  }
+
   class { 'openstack_controller': }
 
 }

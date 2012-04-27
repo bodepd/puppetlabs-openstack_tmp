@@ -4,6 +4,7 @@
 #
 #
 #
+
 class openstack::controller(
   # my address
   $public_address,
