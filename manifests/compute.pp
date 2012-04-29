@@ -21,7 +21,9 @@ class openstack::compute(
   $vncproxy_host      = false,
   # nova compute configuration parameters
   $libvirt_type       = 'kvm',
-  $vnc_enasbled       = 'true'
+  $vnc_enabled        = 'true',
+  $bridge_ip          = '11.0.0.1',
+  $bridge_netmask     = '255.255.255.0',
 ) {
 
   class { 'nova':
@@ -30,7 +32,7 @@ class openstack::compute(
     rabbit_userid      => $rabbit_user,
     rabbit_password    => $rabbit_password,
     image_service      => 'nova.image.glance.GlanceImageService',
-    glance_api_servers => false,
+    glance_api_servers => $glance_api_servers,
     network_manager    => 'nova.network.manager.FlatDHCPManager',
   }
 
@@ -44,6 +46,11 @@ class openstack::compute(
   class { 'nova::compute::libvirt':
     libvirt_type     => $libvirt_type,
     vncserver_listen => $internal_address,
+  }
+
+  nova::network::bridge { 'br100':
+    ip      => $bridge_ip,
+    netmask => $bridge_netmask,
   }
 
 }
