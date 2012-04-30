@@ -25,7 +25,7 @@ namespace :modules do
       Dir.chdir(local) do
         output = `git checkout #{branch}`
       end
-      Puppet.debug(output)
+      # Puppet.debug(output)
     end
   end
 

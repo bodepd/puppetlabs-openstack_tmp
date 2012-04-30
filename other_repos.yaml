@@ -22,4 +22,4 @@ repos:
   checkout_branches:
 #  /etc/puppet/modules/keystone: dev
 #  /etc/puppet/modules/glance: dev
-    /etc/puppetlabs/puppet/modules/nova: dev
+    /etc/puppet/modules/nova: dev
