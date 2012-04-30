@@ -11,7 +11,7 @@ class openstack::all(
   $rabbit_password      = 'rabbit_pw',
   $rabbit_user          = 'nova',
   # opestack credentials
-  $admin_email          = 'dan@puppetlabs.com',
+  $admin_email          = 'someuser@some_fake_email_address.foo',
   $admin_user_password  = 'ChangeMe',
   $keystone_db_password = 'keystone_pass',
   $keystone_admin_token = 'keystone_admin_token',

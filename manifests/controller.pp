@@ -12,7 +12,7 @@ class openstack::controller(
   $admin_address           = $internal_address,
   # connection information
   $mysql_root_password     = 'sql_pass',
-  $admin_email             = 'dan@puppetlabs.com',
+  $admin_email             = 'some_user@some_fake_email_address.foo',
   $admin_password          = 'ChangeMe',
   $keystone_db_password    = 'keystone_pass',
   $keystone_admin_token    = 'keystone_admin_token',
